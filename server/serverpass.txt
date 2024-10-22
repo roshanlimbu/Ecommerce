@@ -1,0 +1,16 @@
+user: roshanlimbu
+UTV9XsB2LCddEt3M
+
+
+auth type 
+username : birenlimbu415
+pass  UTV9XsB2LCddEt3M
+
+username birenlimbu415
+pass CRJX3HG8oIL3HXV8
+
+
+{"_id":{"$oid":"6717a2ad7204553c488ac736"},"userName":"roshan","email":"birenlimbu415@gmail.com","password":"$2a$12$MtF8kRJiZDhhAA8vdMLqkOUZ4Z7TKdRp6H8d3Jw9tru6gBGy2unR6","role":"user","__v":{"$numberInt":"0"}}
+
+
+"password":"$2a$12$Y/lZtQQ4z09uCD.1nI9GmetkoKhiFqfqs99M7.MtDsfjDSE57WwZ2"
