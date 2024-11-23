@@ -55,20 +55,20 @@ function AdminDashboard() {
       <div className="flex flex-col gap-4 mt-5">
         {featureImageList.length > 0
           ? featureImageList.map((featureImgItem) => (
-              <div key={featureImgItem._id} className="relative">
-                <img
-                  src={featureImgItem.image}
-                  alt="Feature"
-                  className="w-full h-[300px] object-cover rounded-t-lg"
-                />
-                <button
-                  onClick={() => handleDeleteFeatureImage(featureImgItem._id)}
-                  className="absolute top-2 right-2 bg-red-600 text-white p-2 rounded-full"
-                >
-                  <FaTrash />
-                </button>
-              </div>
-            ))
+            <div key={featureImgItem._id} className="relative">
+              <img
+                src={featureImgItem.image}
+                alt="Feature"
+                className="w-full h-[300px] object-cover rounded-t-lg"
+              />
+              <button
+                onClick={() => handleDeleteFeatureImage(featureImgItem._id)}
+                className="absolute top-2 right-2 bg-red-600 text-white p-2 rounded-full"
+              >
+                <FaTrash />
+              </button>
+            </div>
+          ))
           : null}
       </div>
     </div>
