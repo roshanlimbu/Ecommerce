@@ -32,13 +32,15 @@ function createSearchParamsHelper(filterParams) {
     }
   }
 
+  console.log(queryParams, "queryParams");
+
   return queryParams.join("&");
 }
 
 function ShoppingListing() {
   const dispatch = useDispatch();
   const { productList, productDetails } = useSelector(
-    (state) => state.shopProducts,
+    (state) => state.shopProducts
   );
   const { cartItems } = useSelector((state) => state.shopCart);
   const { user } = useSelector((state) => state.auth);
@@ -77,15 +79,17 @@ function ShoppingListing() {
   }
 
   function handleGetProductDetails(getCurrentProductId) {
+    console.log(getCurrentProductId);
     dispatch(fetchProductDetails(getCurrentProductId));
   }
 
   function handleAddtoCart(getCurrentProductId, getTotalStock) {
+    console.log(cartItems);
     let getCartItems = cartItems.items || [];
 
     if (getCartItems.length) {
       const indexOfCurrentItem = getCartItems.findIndex(
-        (item) => item.productId === getCurrentProductId,
+        (item) => item.productId === getCurrentProductId
       );
       if (indexOfCurrentItem > -1) {
         const getQuantity = getCartItems[indexOfCurrentItem].quantity;
@@ -105,7 +109,7 @@ function ShoppingListing() {
         userId: user?.id,
         productId: getCurrentProductId,
         quantity: 1,
-      }),
+      })
     ).then((data) => {
       if (data?.payload?.success) {
         dispatch(fetchCartItems(user?.id));
@@ -131,13 +135,15 @@ function ShoppingListing() {
   useEffect(() => {
     if (filters !== null && sort !== null)
       dispatch(
-        fetchAllFilteredProducts({ filterParams: filters, sortParams: sort }),
+        fetchAllFilteredProducts({ filterParams: filters, sortParams: sort })
       );
   }, [dispatch, sort, filters]);
 
   useEffect(() => {
     if (productDetails !== null) setOpenDetailsDialog(true);
   }, [productDetails]);
+
+  console.log(productList, "productListproductListproductList");
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-6 p-4 md:p-6">
@@ -165,7 +171,7 @@ function ShoppingListing() {
                   {sortOptions.map((sortItem) => (
                     <DropdownMenuRadioItem
                       value={sortItem.id}
-                      key={sortItem.id} // Add key prop
+                      key={sortItem.id}
                     >
                       {sortItem.label}
                     </DropdownMenuRadioItem>
@@ -179,7 +185,6 @@ function ShoppingListing() {
           {productList && productList.length > 0
             ? productList.map((productItem) => (
                 <ShoppingProductTile
-                  key={productItem.id} // Add key prop
                   handleGetProductDetails={handleGetProductDetails}
                   product={productItem}
                   handleAddtoCart={handleAddtoCart}
