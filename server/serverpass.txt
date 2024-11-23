@@ -14,3 +14,9 @@ pass CRJX3HG8oIL3HXV8
 
 
 "password":"$2a$12$Y/lZtQQ4z09uCD.1nI9GmetkoKhiFqfqs99M7.MtDsfjDSE57WwZ2"
+
+
+# env example
+PORT=5000
+DB_URL=mongodb+srv://birenlimbu415:CRJX3HG8oIL3HXV8@ecom.ud9il.mongodb.net/
+
