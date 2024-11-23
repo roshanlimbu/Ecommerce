@@ -24,7 +24,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
   const { toast } = useToast();
 
   function handleRatingChange(getRating) {
-    // console.log(getRating, "getRating");
+    console.log(getRating, "getRating");
 
     setRating(getRating);
   }
@@ -34,7 +34,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
 
     if (getCartItems.length) {
       const indexOfCurrentItem = getCartItems.findIndex(
-        (item) => item.productId === getCurrentProductId,
+        (item) => item.productId === getCurrentProductId
       );
       if (indexOfCurrentItem > -1) {
         const getQuantity = getCartItems[indexOfCurrentItem].quantity;
@@ -53,7 +53,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
         userId: user?.id,
         productId: getCurrentProductId,
         quantity: 1,
-      }),
+      })
     ).then((data) => {
       if (data?.payload?.success) {
         dispatch(fetchCartItems(user?.id));
@@ -79,7 +79,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
         userName: user?.userName,
         reviewMessage: reviewMsg,
         reviewValue: rating,
-      }),
+      })
     ).then((data) => {
       if (data.payload.success) {
         setRating(0);
@@ -96,7 +96,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
     if (productDetails !== null) dispatch(getReviews(productDetails?._id));
   }, [productDetails]);
 
-  // console.log(reviews, "reviews");
+  console.log(reviews, "reviews");
 
   const averageReview =
     reviews && reviews.length > 0
@@ -156,7 +156,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
                 onClick={() =>
                   handleAddToCart(
                     productDetails?._id,
-                    productDetails?.totalStock,
+                    productDetails?.totalStock
                   )
                 }
               >
