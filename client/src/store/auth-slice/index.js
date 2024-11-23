@@ -78,7 +78,7 @@ const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    setUser: (state, action) => {},
+    setUser: (state, action) => { },
   },
   extraReducers: (builder) => {
     builder
@@ -99,7 +99,7 @@ const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(loginUser.fulfilled, (state, action) => {
-        console.log(action);
+        // console.log(action);
 
         state.isLoading = false;
         state.user = action.payload.success ? action.payload.user : null;
