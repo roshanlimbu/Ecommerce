@@ -1,8 +1,9 @@
 import ProductImageUpload from "@/components/admin-view/image-upload";
 import { Button } from "@/components/ui/button";
-import { addFeatureImage, getFeatureImages } from "@/store/common-slice";
+import { addFeatureImage, getFeatureImages, deleteFeatureImage } from "@/store/common-slice";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { FaTrash } from "react-icons/fa";
 
 function AdminDashboard() {
   const [imageFile, setImageFile] = useState(null);
@@ -22,6 +23,14 @@ function AdminDashboard() {
       }
     });
   }
+  function handleDeleteFeatureImage(id) {
+    dispatch(deleteFeatureImage(id)).then((data) => {
+      if (data?.payload?.success) {
+        dispatch(getFeatureImages());
+      }
+    });
+  }
+
 
   useEffect(() => {
     dispatch(getFeatureImages());
@@ -39,7 +48,6 @@ function AdminDashboard() {
         setImageLoadingState={setImageLoadingState}
         imageLoadingState={imageLoadingState}
         isCustomStyling={true}
-      // isEditMode={currentEditedId !== null}
       />
       <Button onClick={handleUploadFeatureImage} className="mt-5 w-full">
         Upload
@@ -52,6 +60,12 @@ function AdminDashboard() {
                 src={featureImgItem.image}
                 className="w-full h-[300px] object-cover rounded-t-lg"
               />
+              <button
+                onClick={() => handleDeleteFeatureImage(featureImgItem._id)}
+                className="absolute top-2 right-2 bg-red-600 text-white p-2 rounded-full"
+              >
+                <FaTrash />
+              </button>
             </div>
           ))
           : null}
