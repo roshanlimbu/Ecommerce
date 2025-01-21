@@ -20,3 +20,9 @@ pass CRJX3HG8oIL3HXV8
 PORT=5000
 DB_URL=mongodb+srv://birenlimbu415:CRJX3HG8oIL3HXV8@ecom.ud9il.mongodb.net/
 
+
+// yo chai chalxa
+PORT=5000
+DB_URL=mongodb+srv://birenlimbu415:CRJX3HG8oIL3HXV8@ecom.ud9il.mongodb.net/
+
+
